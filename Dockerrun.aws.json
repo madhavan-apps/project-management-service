@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "2",
   "Image": {
- 	"Name":"proj-mgmt-rest-service:proj-mgmt-rest-service:0.0.1-RELEASE",
+ 	"Name":"madhavansivaprakasamaws/proj-mgmt-rest-service:latest",
  	"Update":"true"},
  	"Ports": [
  		{
