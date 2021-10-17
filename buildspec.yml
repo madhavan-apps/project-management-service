@@ -5,7 +5,7 @@ run-as: Linux-user-name
 phases:
   install:
     runtime-versions:
-      java: openjdk12
+      java: openjdk17
     commands:
       - echo install   
   pre_build:
