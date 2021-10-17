@@ -1,0 +1,15 @@
+{
+  "AWSEBDockerrunVersion": "2",
+  "Image": {
+ 	"Name":"proj-mgmt-rest-service:proj-mgmt-rest-service:0.0.1-RELEASE",
+ 	"Update":"true"},
+ 	"Ports": [
+ 		{
+ 			"ContainerPort":"5000",
+ 			"HostPort":"5000"
+ 		
+ 		}
+ 		
+ 	
+ 	] 
+} 
