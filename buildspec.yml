@@ -11,6 +11,7 @@ phases:
       - echo pre_build
   build:
     commands:
+      -chmod +x gradlew
       - ./gradlew clean build
       - echo build
   post_build:  
