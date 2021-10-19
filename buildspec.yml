@@ -16,6 +16,7 @@ phases:
   post_build:
     commands:
       - echo post_build
+      
 artifacts:
   files:
     - build/libs/project-management-service-0.0.1-RELEASE.jar
