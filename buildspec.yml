@@ -11,12 +11,16 @@ phases:
       - echo pre_build
   build:
     commands:
-      - gradle clean build
+      - ./gradlew build --scan
       - echo build
-  post_build:
+  post_build:  
     commands:
       - echo post_build
+    finally:
+      - rm -f  /root/.gradle/caches/modules-2/modules-2.lock
+      - rm -fr /root/.gradle/caches/*/plugin-resolution/   
       
 artifacts:
   files:
-    - build/libs/project-management-service-0.0.1-RELEASE.jar
+  - '*-RELEASE.jar'
+  base-directory: 'build/libs'
