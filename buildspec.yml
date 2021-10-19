@@ -11,7 +11,7 @@ phases:
       - echo pre_build
   build:
     commands:
-      - gradle build
+      - gradle clean build
       - echo build
   post_build:
     commands:
