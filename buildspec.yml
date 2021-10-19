@@ -11,7 +11,7 @@ phases:
       - echo pre_build
   build:
     commands:
-      - ./gradlew build --scan
+      - ./gradlew build
       - echo build
   post_build:  
     commands:
