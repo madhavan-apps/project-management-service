@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - chmod +x gradlew
-      - ./gradlew clean build
+      - gradle build
       - echo build
   post_build:  
     commands:
