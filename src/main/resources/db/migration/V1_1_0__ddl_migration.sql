@@ -1,38 +1,37 @@
-DROP TABLE IF EXISTS EMP_DEPART_MAP;
-DROP TABLE IF EXISTS PROJ_EMP_MAP;
-DROP TABLE IF EXISTS EMPLOYEE;
-DROP TABLE IF EXISTS PROJECT;
-DROP TABLE IF EXISTS DEPARTMENT;
+drop table if exists emp_depart_map;
+drop table if exists proj_emp_map;
+drop table if exists employee;
+drop table if exists project;
+drop table if exists department;
 
-CREATE TABLE DEPARTMENT (
-	DEPART_ID  varchar(50) NOT NULL PRIMARY KEY,
-       DEPT_NAME varchar(50) NOT NULl
+create table department (
+	depart_id  varchar(50) not null primary key,
+       dept_name varchar(50) not null
 );
 
-CREATE TABLE EMPLOYEE(
-	EMPLOYEE_ID varchar(50) NOT NULL PRIMARY KEY, 
-	EMP_FIRST_NAME varchar(50) NOT NULL,
-	EMP_LAST_NAME varchar(50) NOT NULL);
+create table employee(
+	employee_id varchar(50) not null primary key, 
+	emp_first_name varchar(50) not null,
+	emp_last_name varchar(50) not null);
 
-CREATE TABLE PROJECT(
-	PROJ_ID varchar(50) NOT NULL , 
-	DEPART_ID varchar(50) NOT NULL ,
-	PROJ_NAME varchar(50) NOT NULL,
-      PRIMARY KEY(PROJ_ID,DEPART_ID),
-      FOREIGN KEY (DEPART_ID) REFERENCES DEPARTMENT(DEPART_ID));
+create table project(
+	proj_id varchar(50) not null , 
+	depart_id varchar(50) not null ,
+	proj_name varchar(50) not null,
+      primary key(proj_id,depart_id),
+      foreign key (depart_id) references department(depart_id));
 
-CREATE TABLE EMP_DEPART_MAP(
-	DEPART_ID varchar(50) NOT NULL,
-	EMPLOYEE_ID varchar(50) NOT NULL,
-FOREIGN KEY(DEPART_ID) REFERENCES DEPARTMENT(DEPART_ID) ,
-FOREIGN KEY(EMPLOYEE_ID) REFERENCES EMPLOYEE(EMPLOYEE_ID),
-CONSTRAINT UC_EMP_DEPART_MAP UNIQUE(DEPART_ID,EMPLOYEE_ID));
+create table emp_depart_map(
+	depart_id varchar(50) not null,
+	employee_id varchar(50) not null,
+foreign key(depart_id) references department(depart_id) ,
+foreign key(employee_id) references employee(employee_id),
+constraint uc_emp_depart_map unique(depart_id,employee_id));
 
-CREATE TABLE PROJ_EMP_MAP(
-	PROJ_ID varchar(50) NOT NULL,
-	DEPART_ID varchar(50) NOT NULL,
-	EMPLOYEE_ID varchar(50) NOT NULL,
-FOREIGN KEY(PROJ_ID,DEPART_ID) REFERENCES PROJECT(PROJ_ID,DEPART_ID),
-FOREIGN KEY(EMPLOYEE_ID) REFERENCES EMPLOYEE(EMPLOYEE_ID),
-CONSTRAINT UC_PROJ_EMP_MAP UNIQUE(PROJ_ID,DEPART_ID,EMPLOYEE_ID));
-
+create table proj_emp_map(
+	proj_id varchar(50) not null,
+	depart_id varchar(50) not null,
+	employee_id varchar(50) not null,
+foreign key(proj_id,depart_id) references project(proj_id,depart_id),
+foreign key(employee_id) references employee(employee_id),
+constraint uc_proj_emp_map unique(proj_id,depart_id,employee_id));
