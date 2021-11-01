@@ -6,6 +6,7 @@ import static com.proj.mgmt.common.OPSConstants.RESP_CODE_MSG_MAP.SUCCESS;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ import com.proj.mgmt.rest.Response;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("comp")
